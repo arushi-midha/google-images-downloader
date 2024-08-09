@@ -7,14 +7,14 @@ def search_and_download_images(keyword, num_images):
     _search_params = {
         'q': keyword,
         'num': num_images,
-        # Additional parameters can be added here
+        
     }
 
     # Path to directory where the downloaded images will be stored
     gis.search(search_params=_search_params, path_to_dir='./images/')
     return f'{num_images} images of {keyword} downloaded to ./images/'
 
-# Streamlit interface
+
 st.title("Google Images Downloader")
 st.write("Enter a keyword and the number of images you want to download.")
 
