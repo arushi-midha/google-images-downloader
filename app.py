@@ -1,0 +1,30 @@
+import streamlit as st
+from google_images_search import GoogleImagesSearch
+
+# Function to perform image search and download
+def search_and_download_images(keyword, num_images):
+    gis = GoogleImagesSearch('AIzaSyCGyqf36D5k3QghaZLhAqb1R2OUtRFraF8', '0d386b282da5209ea', validate_images=True)
+    _search_params = {
+        'q': keyword,
+        'num': num_images,
+        # Additional parameters can be added here
+    }
+
+    # Path to directory where the downloaded images will be stored
+    gis.search(search_params=_search_params, path_to_dir='./images/')
+    return f'{num_images} images of {keyword} downloaded to ./images/'
+
+# Streamlit interface
+st.title("Google Image Search Downloader")
+st.write("Enter a keyword and the number of images you want to download.")
+
+# Input fields for keyword and number of images
+keyword = st.text_input("Keyword", value="motorbike")
+num_images = st.number_input("Number of images", min_value=1, max_value=100, value=10, step=1)
+
+# Button to trigger the image search
+if st.button("Search and Download Images"):
+    message = search_and_download_images(keyword, num_images)
+    st.success(message)
+    st.write("Check the './images/' directory for the downloaded images.")
+
