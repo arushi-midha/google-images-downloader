@@ -1,4 +1,4 @@
-# Image Downloader with Email Delivery and Zip Download Option
+# Google Image Downloader
 
 This project is a Flask web application that allows users to search for images using a keyword, download a specified number of images and receive them via email in a zipped file.
 
